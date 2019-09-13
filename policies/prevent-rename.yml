@@ -1,0 +1,21 @@
+#
+# Policy that prevents renaming public repos
+#
+# Variations:
+# 1. Require review/approval from a second admin
+# 2. Allow repo admin to do it, but put the resource in a "delete pending" state first
+#    - maybe even move the repo into private first
+
+name: Prevent public repos from being renamed
+
+# What resources does this policy apply to?
+applies-to:
+  repository:
+    filters:
+    - visibility: public
+    - archived: false
+
+# What restrictions to place on actions, properties, etc of this resource?
+enforces:
+- permission: repo.rename
+  value: not-set

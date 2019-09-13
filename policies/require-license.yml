@@ -1,0 +1,44 @@
+#
+# Policy that ensures all public repos are using an approved license type.
+#
+# Variations:
+# 1. Give a 14 day window for this policy to be addressed
+
+name: Require license
+description: All public repos use an approved license type (MIT, Mozilla Public, or Apache 2)
+
+# What resource(s) does this policy apply to?
+applies-to:
+  repository:
+    filters:
+      - visibility: public
+
+props:
+  # allowed license types (policy-level property)
+  allowed-license-types:
+    type: array
+    required: true                    # at least one option must be selected (an empty array is not considered a valid value for a required field)
+    options: ${{ github.licenses }}   # the fixed set of commonly used license types. See https://developer.github.com/v3/licenses/#list-commonly-used-licenses
+    default: [ mit, mpl-2.0, apache-2.0 ]
+
+  # if a repo is using an invalid license type, what should the license be changed to?
+  default-license:
+    type: object
+    description: Default license to set on non-compliant repositories
+    options: ${{ github.licenses }}
+
+# Compliant resources are using one of the allowed license types
+enforces:
+- contains(props.allowed-license-types.*.key, repository.license.key)
+
+remediation:
+  set-license:
+    name: Set license to a default license
+    # this remediation task requires that the default-license policy property has been set
+    if: props.default-license != ''
+    steps:
+    - uses: ./actions/set-license
+      with:
+        newLicenseType: ${{ props.default-license.key }}
+
+
