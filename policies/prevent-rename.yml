@@ -1,5 +1,4 @@
 name: Prevent public repos from being renamed
-description: With updated description and other nice stuff4
 
 # What resources does this policy apply to?
 applies-to:
