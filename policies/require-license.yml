@@ -11,8 +11,7 @@ applies-to:
   repository:
     filters:
       - visibility: public
-      
-      
+
 props:
   # allowed license types (policy-level property)
   allowed-license-types:
