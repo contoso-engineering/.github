@@ -7,6 +7,7 @@ applies-to:
     - visibility: public
     - archived: false
 
+
 # What restrictions to place on actions, properties, etc of this resource?
 enforces:
 - permission: repo.rename
