@@ -1,5 +1,5 @@
 name: Prevent public repos from being renamed
-
+ 
 # What resources does this policy apply to?
 applies-to:
   repository:
