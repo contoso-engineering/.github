@@ -2,11 +2,13 @@ name: Release branches rules
 description: Enforces policies on the default branch and all release/* branches
 
 applies-to:
-  type: branch  
-  filters:
-  - default-branch: true # TODO: this should live outside "filters"
-  - name: 
-    - release/*
+  branch:
+  # as written this filter would only match default branches named releases/* since conditions are AND'ed
+  # we are cheating a bit since we don't have an "or" expression operator
+    filters:
+    - default: true  
+    - name: 
+      - releases/*
 
 enforces:
   reviewer:
