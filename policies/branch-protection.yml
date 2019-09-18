@@ -1,0 +1,55 @@
+name: Release branches rules
+description: Enforces policies on the default branch and all release/* branches
+
+applies-to:
+  type: branch  
+  filters:
+  - default-branch: true # TODO: this should live outside "filters"
+  - name: 
+    - release/*
+
+enforces:
+  reviewer:
+    approving-reviewers: 2
+    dismisses-stale-reviews: true
+    requires-code=owner-reviews: true
+
+  linked-work-item: required
+
+  resolved-comments: optional # i.e. warn, but don't block
+
+  merge-types:
+    - squash
+
+  pipelines:
+    - id: 5599
+      expires-after: 240m
+      required: true
+
+  automatic-reviewers:
+    use-code-owners:
+      required: true # is the code owners file required? or are identified owners required reviewers? 
+
+    paths: # should this be "reviewers"
+      - path: engtools/*
+        reviewers:
+          - group: oengdpcr
+            minimum-approvers: 2
+            allow-self-approval: false
+        
+        change-types:
+        required: true
+          - add
+      
+      - path: engtools/projects/*
+        reviewers:
+          - oengcbswe
+
+  statuses:
+    - name: validApprovers/LastPush
+      required: true
+      reset-on-source-change: true
+      paths:
+        - /foo/*
+      allowed-users:
+        - MyServiceAccount 
