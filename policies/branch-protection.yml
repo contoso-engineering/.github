@@ -6,7 +6,7 @@ applies-to:
   branch:
     includes:
     - default: true
-    - name: release/*
+    - name: releases/*
 
 # Enforces minimum approvers, commit signing, etc
 enforces:
