@@ -5,7 +5,7 @@ description: Enforces policies on all release branches
 applies-to:
   branch:
     includes:
-    - default: true
+    #- default: true
     - name: releases/*
     - name: prereleases/*
 
