@@ -9,8 +9,8 @@ description: All public repos use an approved license type (MIT, Mozilla Public,
 # What resource(s) does this policy apply to?
 applies-to:
   repository:
-    filters:
-      - visibility: public
+    includes:
+      - isPublic: false
     
     
 props:

@@ -3,8 +3,8 @@ name: Prevent public repos from being renamed
 # What resources does this policy apply to?
 applies-to:
   repository:
-    filters:
-    - visibility: public
+    includes:
+    - isPrivate: false
     - archived: false
 
 # What restrictions to place on actions, properties, etc of this resource?
