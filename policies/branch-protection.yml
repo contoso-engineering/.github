@@ -11,7 +11,7 @@ applies-to:
 
 # Enforces minimum approvers, commit signing, etc
 enforces:
-- requiredApprovingReviewCount: 2
+- requiredApprovingReviewCount: 5
 - dismissesStaleReviews: true
 - requiresCodeOwnerReviews: true
 - requiresCommitSignatures: true
