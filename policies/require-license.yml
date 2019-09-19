@@ -10,7 +10,7 @@ description: All public repos use an approved license type (MIT, Mozilla Public,
 applies-to:
   repository:
     includes:
-      - isPublic: false
+      - isPrivate: false
     
     
 props:
