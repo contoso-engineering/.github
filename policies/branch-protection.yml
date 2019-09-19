@@ -15,5 +15,5 @@ enforces:
 - dismissesStaleReviews: true
 - requiresCodeOwnerReviews: true
 - requiresCommitSignatures: true
-- count(requiredStatusCheckContexts) >= 1
+#- count(requiredStatusCheckContexts) >= 1
 
