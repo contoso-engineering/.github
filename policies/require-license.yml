@@ -4,7 +4,7 @@
 # Variations:
 # 1. Give a 14 day window for this policy to be addressed
 
-name: Require license2
+name: Require license23
 description: All public repos use an approved license type (MIT, Mozilla Public, or Apache 2)
 # What resource(s) does this policy apply to?
 applies-to:
