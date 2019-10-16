@@ -6,11 +6,9 @@
 
 name: Require license
 description: All public repos use an approved license type (MIT, Mozilla Public, or Apache 2)
+
 # What resource(s) does this policy apply to?
-applies-to:
-  repository:
-    includes:
-      - isPrivate: true
+applies-to: repository
     
 props:
   # allowed license types (policy-level property)
